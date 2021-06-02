@@ -72,10 +72,11 @@ class MyPage extends StatelessWidget {
               children: List.generate(100, (index) {
                 return Container(
                   decoration: BoxDecoration(
-                      border: Border.all(
-                    color: Colors.black,
-                    width: 1,
-                  )),
+                    border: Border.all(
+                      color: Colors.black,
+                      width: 1,
+                    ),
+                  ),
                 );
               }),
             ),
