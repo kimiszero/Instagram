@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class TestE extends StatelessWidget {
-  const TestE({Key? key}) : super(key: key);
+class LoginPage extends StatelessWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('test'),
+      child: Text('login page'),
     );
   }
 }

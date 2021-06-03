@@ -42,7 +42,7 @@ class Feed extends StatelessWidget {
           ],
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(3, 10, 0, 0),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -65,7 +65,9 @@ class Feed extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    TextSpan(text: "   I don't play the game"),
+                    TextSpan(
+                        text:
+                            "   난 매일 손꼽아 기다려 한 달에 한번 그댈 보는 날,, \n월급은 통장을 스칠뿐,,"),
                   ],
                 ),
               ),

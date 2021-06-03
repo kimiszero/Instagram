@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CameraPage extends StatefulWidget {
@@ -19,10 +20,10 @@ class _CameraPageState extends State<CameraPage> {
         ),
         iconTheme: IconThemeData(color: Colors.black),
       ),
-      body: Center(
-        child: Text(
-          'camera page',
-        ),
+      body: FloatingActionButton(
+        onPressed: null,
+        backgroundColor: Colors.blue,
+        child: Icon(CupertinoIcons.pencil),
       ),
     );
   }
