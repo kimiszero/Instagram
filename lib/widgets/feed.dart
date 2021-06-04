@@ -1,9 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_instagram/models/feed_model.dart';
+import 'package:intl/intl.dart';
 
-class Feed extends StatelessWidget {
-  const Feed({Key? key}) : super(key: key);
+class Feed extends StatefulWidget {
+  const Feed({
+    Key? key,
+    required this.feedModel,
+  }) : super(key: key);
 
+  final FeedModel feedModel;
+
+  @override
+  _FeedState createState() => _FeedState();
+}
+
+class _FeedState extends State<Feed> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -11,17 +23,28 @@ class Feed extends StatelessWidget {
       children: [
         AspectRatio(
           aspectRatio: 1 / 1,
-          child: Image.asset(
-            'assets/images/cat.jpeg',
+          child: Image.network(
+            widget.feedModel.imageUrl,
             fit: BoxFit.cover,
           ),
         ),
         Row(
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  widget.feedModel.likedByUser = !widget.feedModel.likedByUser;
+                  if (widget.feedModel.likedByUser) {
+                    widget.feedModel.likes += 1;
+                  } else {
+                    widget.feedModel.likes -= 1;
+                  }
+                });
+              },
               icon: Icon(CupertinoIcons.heart),
-              color: Colors.black,
+              color: widget.feedModel.likedByUser
+                  ? Colors.pinkAccent
+                  : Colors.black,
             ),
             IconButton(
               onPressed: () {},
@@ -47,7 +70,7 @@ class Feed extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '9 likes',
+                '${widget.feedModel.likes} likes',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
@@ -60,20 +83,20 @@ class Feed extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: 'zerome',
+                      text: widget.feedModel.name,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     TextSpan(
-                        text:
-                            "   난 매일 손꼽아 기다려 한 달에 한번 그댈 보는 날,, \n월급은 통장을 스칠뿐,,"),
+                      text: '${widget.feedModel.description}',
+                    ),
                   ],
                 ),
               ),
               SizedBox(height: 8),
               Text(
-                'MAY 31',
+                '${DateFormat('MMMM dd').format(widget.feedModel.createdAt)}',
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 12,

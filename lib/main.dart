@@ -5,8 +5,11 @@ import 'package:flutter_instagram/pages/favorite_page.dart';
 import 'package:flutter_instagram/pages/home_page.dart';
 import 'package:flutter_instagram/pages/my_page.dart';
 import 'package:flutter_instagram/pages/search_page.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 
 void main() async {
+  await DotEnv.load(fileName: ".env");
+
   runApp(MyApp());
 }
 

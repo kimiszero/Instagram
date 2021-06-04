@@ -31,7 +31,7 @@ class MyPageDetail extends StatelessWidget {
                 ],
               ),
             ),
-            Feed(),
+            // Feed(feedModel: _feedModels[index]),
           ],
         ),
       ),
